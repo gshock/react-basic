@@ -16,11 +16,12 @@ export default class Product extends Component {
   buy(){
     console.log("buy");
     this.setState({qty: this.state.qty + 1});
+    //this.props.handleTotal(this.props.price);
   }
   
   show(){
     console.log("show");
-    this.props.handleShow(this.props.name).bind(this);
+    this.props.handleShow(this.props.name);
   }
   
   render() {
