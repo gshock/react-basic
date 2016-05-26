@@ -13,7 +13,7 @@ export default class ProductList extends Component {
   
   calculateTotal(price){
       this.setState({total: this.state.total + price});
-      alert(this.state.total);
+      console.log("total: " + this.state.total);
   }
   
   showProduct(name){
@@ -34,7 +34,7 @@ export default class ProductList extends Component {
         <Product name="Apple" price={249}
             handleShow={this.showProduct}
             handleTotal={this.calculateTotal}/>
-        <Total/>
+        <Total total={this.state.total}/>
       </div>
     );
   }
