@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Product from './Product';
+import ProductForm from './ProductForm';
 import Total from './Total';
 
 export default class ProductList extends Component {
@@ -14,6 +15,13 @@ export default class ProductList extends Component {
             ]
         }
         this.calculateTotal = this.calculateTotal.bind(this);
+        this.createProduct = this.createProduct.bind(this);
+    }
+    
+    createProduct(product){
+        this.setState({
+            productList: this.state.productList.concat(product)
+        })
     }
 
     calculateTotal(price) {
@@ -41,6 +49,7 @@ export default class ProductList extends Component {
 
         return (
             <div>
+                <ProductForm handleCreate={this.createProduct}/>
                 {products}
                 <Total total={this.state.total}/>
             </div>
